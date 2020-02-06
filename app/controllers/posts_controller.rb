@@ -1,33 +1,34 @@
 class PostsController < ApplicationController
   def show
-    @article = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def edit
-    @article = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def update
-    @article = Post.find(params[:id])
+    @post = Post.find(params[:id])
 
-    if @article.valid?
-      redirect_to post_path(@article)
+    @post.update(post_params)
+    if @post.valid?
+      redirect_to post_path(@post)
     else
       render :edit
     end
   end
 
   def new
-    @article = Post.new
+    @post = Post.new
   end
 
   def create
-    @article = Post.new(post_params)
+    @post = Post.new(post_params)
 
-    if @article.valid?
-      @article.save
+    if @post.valid?
+      @post.save
 
-      redirect_to post_path(@article)
+      redirect_to post_path(@post)
     else
       render :new
     end

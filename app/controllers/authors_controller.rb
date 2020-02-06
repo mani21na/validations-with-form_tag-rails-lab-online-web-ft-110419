@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
   before_action :set_author, only: [:show, :edit, :update]
-  
+
   def show
   end
 
@@ -10,7 +10,7 @@ class AuthorsController < ApplicationController
 
   def create
     @author = Author.new(author_params)
-    
+
     if @author.valid?
       @author.save
 
@@ -19,17 +19,17 @@ class AuthorsController < ApplicationController
       render :new
     end
   end
-  
-  def edit 
+
+  def edit
   end
 
   def update
     @author = Author.update(author_params)
-    
+
     if @author.valid?
       redirect_to author_path(@author)
-    else 
-      render :edit 
+    else
+      render :edit
     end
   end
 
@@ -38,8 +38,8 @@ class AuthorsController < ApplicationController
   def author_params
     params.permit(:name, :email, :phone_number)
   end
-  
-  def set_author 
+
+  def set_author
     @author = Author.find(params[:id])
-  end 
+  end
 end
