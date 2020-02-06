@@ -13,17 +13,17 @@
 
   <div class="field<%= ' field_with_errors' if @person.errors[:email].any? %>">
     <%= label_tag "name", "Name" %>
-    <%= text_field_tag "name" %>
+    <%= text_field_tag "name", @post.name  %>
   </div>
 
   <div class="field<%= ' field_with_errors' if @person.errors[:name].any? %>">
     <%= label_tag "email", "Email" %>
-    <%= text_field_tag "email" %>
+    <%= text_field_tag "email", @post.email  %>
   </div>
 
   <div class="field<%= ' field_with_errors' if @person.errors[:name].any? %>">
     <%= label_tag "phone_number", "Phone Number" %>
-    <%= text_field_tag "phone_number" %>
+    <%= text_field_tag "phone_number", @post.phone_number  %>
   </div>
 
   <%= submit_tag "Create" %>
